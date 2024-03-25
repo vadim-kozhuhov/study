@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const userBirthYear = prompt('Plese enter your year of birth'); 
+        const userCity = prompt('Plese enter your city'); 
+        const userSport = prompt('Plese enter your favorite sport'); 
+        const userAge = new Date().getFullYear() - userBirthYear;
+        let country = '';
+        let beLike = '';
+        if (userCity) {
+                switch (userCity) {
+                case 'Київ':
+                country = 'Ти живеш у столиці України';
+                break;
+                case 'Вашингтон':
+                country = 'Ти живеш у столиці США';
+                break;
+                case 'Лондон':
+                country = 'Ти живеш у столиці Великобританіі';
+                break;
+                default:
+                country = `Ти живеш у місті ${userCity}`;
+                break;
+            }
+        }
+        if (userSport) {
+            switch (userSport) {
+                case 'Бокс':
+                beLike = 'Круто! Хочеш стати Майком Тайсоном?';
+                break;
+                case 'Баскетбол':
+                beLike = 'Круто! Хочеш стати Майклом Джорданом?';
+                break;
+                case 'Біг':
+                beLike = 'Круто! Хочеш стати Усейн Болтом?';
+                break;
+                default:
+                beLike = `Тобі подобається ${userSport}`;
+                break;
+            }
+        }
+        
+        
+
+        if (!userBirthYear) {
+            alert ('Шкода, що Ви не захотіли ввести свій(ю) дату народження');
+        }
+        if (!userCity) {
+            alert ('Шкода, що Ви не захотіли ввести свій(ю) місто ');
+        }
+        if (!userSport) {
+            alert ('Шкода, що Ви не захотіли ввести свій(ю) вид спорту');
+        }
+        alert (`Тобі ${userAge} років, ${country}. ${beLike}`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
