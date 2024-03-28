@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const inpVal = prompt('Enter Solid Number');
+
+        if (inpVal <= 1) {
+            alert('Not Prime');
+        } else {
+            let isPrime = true;
+            for (let i = 2; i <= Math.sqrt(inpVal); i++) {
+                if (inpVal % i === 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                alert('Prime');
+            } else {
+                alert('Not Prime');
+            }
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
