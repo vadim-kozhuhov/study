@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calcArythmAverage(array) {
+            let sum = 0;
+            let count = 0;
+            array.forEach(function (el) {
+                if (typeof el === 'number') {
+                    sum += el;
+                    count++;
+                }
+            });
+            if (count === 0) {
+                return 'No digits in Array';
+            }
+            return [`Arythmeyic Average is ${sum}`, `number of digits is ${count}`];
+        };
+        let result = calcArythmAverage([1, 2, '22', 'awd', null]);
+        console.log(result);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
