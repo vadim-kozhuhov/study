@@ -8,9 +8,9 @@
         let numOrStr = prompt('input number or string');
         console.log(numOrStr)
 
-        switch (numOrStr) {
+        switch (true) {
             
-            case null:
+            case numOrStr === null:
             console.log('ви скасували');
             break;
 
@@ -18,12 +18,12 @@
             console.log('Empty String');
             break;
 
+            case isNaN( +numOrStr ):
+            console.log(' number is Ba_NaN');
+            break;
+
             default:
-                if(!Number(numOrStr)) {
-                    console.log(' number is Ba_NaN');
-                } else {
-                    console.log('OK!');
-                }
+            console.log('OK!');
             break;
         }
     </script>
