@@ -8,9 +8,9 @@
     <script>
         function getLastInput() {
             let inp = '';
-            for (let i = 0; i < 3; i++) {
+            for (let i = 0; i < 10; i++) {
                 inp = prompt('Enter digit > 100');
-                if (inp < 100) {
+                if (inp <= 100) {
                     continue;
                 } else {
                     return inp;
