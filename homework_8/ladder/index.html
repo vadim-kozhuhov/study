@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        let ladder = {
+            step: 0,
+            up: function () { // підніматиме вас на одну сходинку
+                this.step = this.step + 1; 
+                return this;
+            },
+            down: function () { // опускатиме вас на одну сходинку
+                this.step = this.step - 1; 
+                return this;
+            },
+            showStep: function () { // показує поточну сходинку
+                console.log(`Your current step is ${this.step}`);
+                return this;
+            }
+        };
+        ladder.up().up().up().showStep().down().showStep();
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
