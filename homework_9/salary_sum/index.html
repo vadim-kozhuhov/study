@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    let company = {
+        sales: [{ name: 'John', salary: 1000 }, { name: 'Alice', salary: 600 }],
+        development: {
+            web: [{ name: 'Peter', salary: 2000 }, { name: 'Alex', salary: 1800 }],
+            internals: [{ name: 'Jack', salary: 1300 }],
+            soft: [{name: 'Scott', salary: 200}, {name: 'Vados', salary: 100}]
+        }
+    };
+    function calcSalary(department) {
+        let totalSalary = 0;
+
+        for (let key in department) {
+            if (Array.isArray(department[key])) {
+                for (let i = 0; i < department[key].length; i++) {
+                    totalSalary += department[key][i].salary;
+                }
+            } else {
+                totalSalary += calcSalary(department[key]);
+            }
+        }
+
+        return totalSalary;
+    }
+
+    let totalSalary = calcSalary(company);
+    console.log(`Total salary of all employees: ${totalSalary}`);
+</script>
+
+<body>
+
+</body>
+
+</html>
