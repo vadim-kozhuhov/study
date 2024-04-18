@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    let contactList = {
+        contacts: [
+            {
+                name: 'Vados',
+                phone: '123456789',
+                mail: 'bebebe@gmail.com'
+            },
+            {
+                name: 'Petro',
+                phone: '123456789',
+                mail: 'bebebe@gmail.com'
+            }
+        ],
+        findUser: function (value) {
+            for (let user of this.contacts) {
+                if (value === user.name) {
+                    return user;
+                } else {
+                    return 'No such user'
+                }
+            }
+        },
+        addUser: function (name, phone, mail) {
+            let newUser = { name: name, phone: phone, mail: mail };
+            this.contacts.push(newUser);
+            return 'Added';
+        }
+    }
+    console.log(contactList.findUser('Vados'));
+    console.log(contactList.addUser('Vados1', '123123123', 'blabla@gmail.com'));
+    console.log(contactList.contacts);
+</script>
+
+<body>
+
+</body>
+
+</html>
