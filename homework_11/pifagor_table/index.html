@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+</body>
+<script>
+    document.body.onload = createTable;
+    function createTable() {
+        const pifTable = document.createElement('table');
+        for (let x = 0; x <= 10; x++) {
+            const pifTableTr = document.createElement('tr');
+            for (let y = 0; y <= 10; y++) {
+                const pifTableTd = document.createElement('td');
+                if (x == 0 && y == 0) {
+                    pifTableTd.innerText = '';
+                    pifTableTr.append(pifTableTd);
+                } else if (x != 0 && y == 0) {
+                    pifTableTd.innerText = x;
+                    pifTableTr.append(pifTableTd);
+                } else if (x == 0) {
+                    pifTableTd.innerText = y;
+                    pifTableTr.append(pifTableTd);
+                } else {
+                    pifTableTd.innerText = x * y;
+                    pifTableTr.append(pifTableTd);
+                }
+
+            }
+            pifTable.append(pifTableTr);
+        }
+
+        document.body.append(pifTable);
+    };
+</script>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table tr td {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        border: 1px solid gray;
+    }
+
+    table tr:first-child {
+        background-color: blue;
+        color: #fff;
+    }
+
+    table tr td:first-child {
+        background-color: blue;
+        color: #fff;
+    }
+    table tr:first-child td:first-child {
+        background-color: #fff;
+    }
+</style>
+
+</html>
