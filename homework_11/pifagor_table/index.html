@@ -19,17 +19,17 @@
             const pifTableTr = document.createElement('tr');
             for (let y = 0; y <= 10; y++) {
                 const pifTableTd = document.createElement('td');
-                if (x == 0 && y == 0) {
+                if (x === 0 && y === 0) {
                     pifTableTd.innerText = '';
                     pifTableTr.append(pifTableTd);
-                } else if (x != 0 && y == 0) {
-                    pifTableTd.innerText = x;
+                } else if (x !== 0 && y === 0) {
+                    pifTableTd.innerText = `${x}`;
                     pifTableTr.append(pifTableTd);
-                } else if (x == 0) {
-                    pifTableTd.innerText = y;
+                } else if (x === 0) {
+                    pifTableTd.innerText = `${y}`;
                     pifTableTr.append(pifTableTd);
                 } else {
-                    pifTableTd.innerText = x * y;
+                    pifTableTd.innerText = `${x * y}`;
                     pifTableTr.append(pifTableTd);
                 }
 
@@ -38,7 +38,7 @@
         }
 
         document.body.append(pifTable);
-    };
+    }
 </script>
 <style>
     table {

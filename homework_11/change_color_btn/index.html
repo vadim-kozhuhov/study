@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .text.color { color: blue;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="text">
+            bla bla bla
+        </div>
+        <button class="btn">Change Color</button>
+    </div>
+</body>
+<script>
+    const textBox = document.querySelector('.text');
+    const btn = document.querySelector('.btn');
+    btn.addEventListener('click', () => {
+        textBox.classList.toggle('color');
+    })
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .img {
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<img class="img" src="img/1.jpg" alt="">
+<div></div>
+<button class="change-img">Change Image</button>
+</body>
+<script>
+    const image = document.querySelector('.img');
+    const changeImage = document.querySelector('.change-img');
+    const imgList = [
+        'img/1.jpg',
+        'img/2.jpg',
+        'img/3.jpg',
+        'img/4.jpg',
+        'img/5.jpg',
+        'img/6.jpg',
+        'img/7.jpg',
+        'img/8.jpg',
+        'img/9.jpg'
+    ];
+    changeImage.addEventListener('click', () => {
+        return image.src = `${imgList[(Math.floor(Math.random() * imgList.length))]}`;
+    })
+
+</script>
+</html>
