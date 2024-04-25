@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<button class="set-link">Set Link</button>
+<button class="go-btn">Go</button>
+
+
+<script>
+    const setLink = document.querySelector('.set-link');
+    const goBtn = document.querySelector('.go-btn');
+    setLink.addEventListener('click', function () {
+        const val = prompt('Enter Link (with https:)');
+        if (val !== null && val !== '') {
+            localStorage.setItem('link', val);
+        }
+    })
+    goBtn.addEventListener('click', function (e) {
+        let link = localStorage.getItem('link');
+        if (link !== null && link !== '') {
+            window.location.href = link;
+            localStorage.clear();
+        } else {
+            alert('Enter link first');
+        }
+    })
+</script>
+</body>
+</html>

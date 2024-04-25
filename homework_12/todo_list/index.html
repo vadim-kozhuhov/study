@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<ul id="taskList">
+    <li>Task 1
+        <button class="js--delete">Delete</button>
+    </li>
+    <li>Task 2
+        <button class="js--delete">Delete</button>
+    </li>
+    <li>Task 3
+        <button class="js--delete">Delete</button>
+    </li>
+</ul>
+<div class="add">
+    <input id="addTaskInp" type="text" placeholder="Add new task">
+    <button id="addTaskBtn">add</button>
+</div>
+
+
+<script>
+    const newTaskInp = document.getElementById('addTaskInp');
+    document.getElementById('taskList').addEventListener('click', function (event) {
+        if (event.target && event.target.classList.contains('js--delete')) {
+            event.target.parentNode.remove();
+        }
+    })
+    document.getElementById('addTaskBtn').addEventListener('click', function () {
+        if (newTaskInp.value !== '') {
+            let newLi = document.createElement('li');
+            newLi.textContent = newTaskInp.value;
+            let delBtn = document.createElement('button');
+            delBtn.textContent = 'Delete';
+            newLi.appendChild(delBtn);
+            delBtn.className = 'js--delete';
+            document.getElementById('taskList').appendChild(newLi);
+            newTaskInp.value = '';
+        } else {
+            alert('Enter task name first');
+        }
+    })
+</script>
+</body>
+</html>
