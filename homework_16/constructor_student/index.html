@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        'use strict';
+
+        function CreateStudent(firstName, lastName, birthYear, grades) {
+            let student = {
+                firstName: firstName,
+                lastName: lastName,
+                birthYear: birthYear,
+                grades: grades,
+                attendance: new Array(25).fill(null),
+                attendanceCount: 0,
+                fullName: function () {
+                    return `${firstName} ${lastName}`
+                },
+                present: function () {
+                    if (this.attendanceCount < 25) {
+                        this.attendance[this.attendanceCount] = true;
+                        this.attendanceCount++;
+                    } else {
+                        console.log("Attendance journal is full");
+                    }
+                },
+                absent: function () {
+                    if (this.attendanceCount < 25) {
+                        this.attendance[this.attendanceCount] = false;
+                        this.attendanceCount++;
+                    } else {
+                        console.log("Attendance journal is full");
+                    }
+                },
+                age: function () {
+                    let currentYear = new Date().getFullYear();
+                    return currentYear - this.birthYear;
+                },
+                averageGrade: function () {
+                    if (this.grades.length > 0) {
+                        let sum = this.grades.reduce((accumulator, currentVal) => accumulator + currentVal, 0);
+                        return sum / this.grades.length;
+                    } else {
+                        return 0;
+                    }
+                },
+                summary: function () {
+                    let avgGrade = this.averageGrade();
+                    let avgAttendance = this.attendanceCount / 25;
+                    if (avgGrade > 90 && avgAttendance > 0.9) {
+                        return "Молодець!";
+                    } else if (avgGrade > 90 || avgAttendance > 0.9) {
+                        return "Добре, але можна краще";
+                    } else {
+                        return "Редиска!";
+                    }
+                }
+            };
+
+            return student;
+        }
+
+        let student1 = CreateStudent("Вадос", "Кожухов", 1985, [100, 90, 80, 88, 10]);
+        let student2 = CreateStudent("неВадос", "неКожухов", 2005, [12, 90, 100, 88, 100]);
+        let student3 = CreateStudent("Вадос2", "Кожухов2", 1924, [99, 99, 99, 99, 99, 99, 99, 99, 99, 99]);
+
+        student1.present();
+        student1.present();
+        student1.absent();
+        student1.present();
+        console.log('-----------------');
+        console.log("Student Name:", student1.fullName());
+        console.log("Student Age:", student1.age());
+        console.log("Average Grade:", student1.averageGrade());
+        console.log("Total:", student1.summary());
+
+        student2.present();
+        student2.absent();
+        student2.absent();
+        student2.absent();
+        console.log('-----------------');
+        console.log("Student Name:", student2.fullName());
+        console.log("Student Age:", student2.age());
+        console.log("Average Grade:", student2.averageGrade());
+        console.log("Total:", student3.summary());
+
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        student3.present();
+        console.log('-----------------');
+        console.log("Student Name:", student3.fullName());
+        console.log("Student Age:", student3.age());
+        console.log("Average Grade:", student3.averageGrade());
+        console.log("Total:", student3.summary());
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
