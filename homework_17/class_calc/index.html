@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        'use strict';
+
+        class Calculator {
+            add(a, b) {
+                return a + b;
+            }
+
+            subtract(a, b) {
+                return a - b;
+            }
+
+            multiply(a, b) {
+                return a * b;
+            }
+
+            divide(a, b) {
+                if (b === 0) {
+                    console.log('Can"t divide to zero');
+                }
+                return a / b;
+            }
+        }
+
+
+        const calc = new Calculator();
+
+        console.log(calc.add(5, 3));
+        console.log(calc.subtract(5, 3));
+        console.log(calc.multiply(5, 3));
+        console.log(calc.divide(5, 3));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

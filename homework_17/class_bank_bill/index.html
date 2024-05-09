@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        'use strict';
+
+        class BankBill {
+            constructor(balance) {
+                this.balance = balance;
+            }
+
+            getBalance() {
+                return this.balance;
+            }
+
+            deposit(amount) {
+                this.balance += amount;
+                return this.balance;
+            }
+
+            withdraw(amount) {
+                this.balance -= amount;
+            }
+        }
+
+        const account1 = new BankBill(1000);
+
+        console.log(account1.getBalance());
+        account1.deposit(500);
+        console.log(account1.getBalance());
+        account1.withdraw(100);
+        console.log(account1.getBalance());
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
