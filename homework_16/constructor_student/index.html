@@ -10,63 +10,59 @@
         'use strict';
 
         function CreateStudent(firstName, lastName, birthYear, grades) {
-            let student = {
-                firstName: firstName,
-                lastName: lastName,
-                birthYear: birthYear,
-                grades: grades,
-                attendance: new Array(25).fill(null),
-                attendanceCount: 0,
-                fullName: function () {
-                    return `${firstName} ${lastName}`
-                },
-                present: function () {
-                    if (this.attendanceCount < 25) {
-                        this.attendance[this.attendanceCount] = true;
-                        this.attendanceCount++;
-                    } else {
-                        console.log("Attendance journal is full");
-                    }
-                },
-                absent: function () {
-                    if (this.attendanceCount < 25) {
-                        this.attendance[this.attendanceCount] = false;
-                        this.attendanceCount++;
-                    } else {
-                        console.log("Attendance journal is full");
-                    }
-                },
-                age: function () {
-                    let currentYear = new Date().getFullYear();
-                    return currentYear - this.birthYear;
-                },
-                averageGrade: function () {
-                    if (this.grades.length > 0) {
-                        let sum = this.grades.reduce((accumulator, currentVal) => accumulator + currentVal, 0);
-                        return sum / this.grades.length;
-                    } else {
-                        return 0;
-                    }
-                },
-                summary: function () {
-                    let avgGrade = this.averageGrade();
-                    let avgAttendance = this.attendanceCount / 25;
-                    if (avgGrade > 90 && avgAttendance > 0.9) {
-                        return "Молодець!";
-                    } else if (avgGrade > 90 || avgAttendance > 0.9) {
-                        return "Добре, але можна краще";
-                    } else {
-                        return "Редиска!";
-                    }
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.birthYear = birthYear;
+            this.grades = grades;
+            this.attendance = new Array(25).fill(null);
+            this.attendanceCount = 0;
+            this.fullName = function () {
+                return `${this.firstName} ${this.lastName}`
+            };
+            this.present = function () {
+                if (this.attendanceCount < 25) {
+                    this.attendance[this.attendanceCount] = true;
+                    this.attendanceCount++;
+                } else {
+                    console.log("Attendance journal is full");
                 }
             };
-
-            return student;
+            this.absent = function () {
+                if (this.attendanceCount < 25) {
+                    this.attendance[this.attendanceCount] = false;
+                    this.attendanceCount++;
+                } else {
+                    console.log("Attendance journal is full");
+                }
+            };
+            this.age = function () {
+                let currentYear = new Date().getFullYear();
+                return currentYear - this.birthYear;
+            };
+            this.averageGrade = function () {
+                if (this.grades.length > 0) {
+                    let sum = this.grades.reduce((accumulator, currentVal) => accumulator + currentVal, 0);
+                    return sum / this.grades.length;
+                } else {
+                    return 0;
+                }
+            };
+            this.summary = function () {
+                let avgGrade = this.averageGrade();
+                let avgAttendance = this.attendanceCount / 25;
+                if (avgGrade > 90 && avgAttendance > 0.9) {
+                    return "Молодець!";
+                } else if (avgGrade > 90 || avgAttendance > 0.9) {
+                    return "Добре, але можна краще";
+                } else {
+                    return "Редиска!";
+                }
+            };
         }
 
-        let student1 = CreateStudent("Вадос", "Кожухов", 1985, [100, 90, 80, 88, 10]);
-        let student2 = CreateStudent("неВадос", "неКожухов", 2005, [12, 90, 100, 88, 100]);
-        let student3 = CreateStudent("Вадос2", "Кожухов2", 1924, [99, 99, 99, 99, 99, 99, 99, 99, 99, 99]);
+        let student1 = new CreateStudent("Вадос", "Кожухов", 1985, [100, 90, 80, 88, 10]);
+        let student2 = new CreateStudent("неВадос", "неКожухов", 2005, [12, 90, 100, 88, 100]);
+        let student3 = new CreateStudent("Вадос2", "Кожухов2", 1924, [99, 99, 99, 99, 99, 99, 99, 99, 99, 99]);
 
         student1.present();
         student1.present();
