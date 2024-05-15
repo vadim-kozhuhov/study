@@ -25,16 +25,15 @@
             }
 
             init() {
-                this.element.innerText = this.formatOutput();
                 const intId = setInterval(
                     () => {
-                        if (this.amount >= 1) {
-                            this.amount--;
+                        if (this.amount > 0) {
                             this.element.innerText = this.formatOutput();
+                            this.amount--;
                         } else {
+                            this.element.innerText = `${this.formatOutput()} - Time Off`;
                             clearInterval(intId);
                         }
-
                     },
                     1000
                 )
