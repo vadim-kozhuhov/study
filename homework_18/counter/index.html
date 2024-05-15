@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+<h1>Countdown Timer</h1>
+<div id="counter"></div>
+<div id="hint"></div>
+<script>
+    'use strict';
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        class Counter {
+
+            constructor(amount) {
+                this.amount = amount;
+                this.element = document.getElementById('counter');
+            }
+
+            init() {
+                this.element.innerText = this.formatOutput();
+                const intId = setInterval(
+                    () => {
+                        if (this.amount >= 1) {
+                            this.amount--;
+                            this.element.innerText = this.formatOutput();
+                        } else {
+                            clearInterval(intId);
+                        }
+
+                    },
+                    1000
+                )
+            }
+
+            formatOutput() {
+                const minutes = Math.floor(this.amount / 60).toString().padStart(2, '0');
+                const seconds = Math.floor(this.amount % 60).toString().padStart(2, '0');
+                return `${minutes}:${seconds}`;
+            }
+        }
+
+        const counter = new Counter(5);
+        counter.init();
+    })
+</script>
+</body>
+</html>
