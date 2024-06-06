@@ -1,0 +1,24 @@
+table {
+  width: 400px;
+  border-collapse: collapse;
+  tr {
+    td {
+      height: 50px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      &:first-child {
+        background: #ccc;
+      }
+    }
+  }
+}
+
+#reload {
+  width: 400px;
+  height: 50px;
+  line-height: 48px;
+  margin-top: 20px;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+}
